@@ -3,26 +3,27 @@
 
 enum class UnitOfMeasurement
 {
+    Count,
     Teaspoon,
     Tablespoon,
     Fluid_Ounce,
-    Gill,
+    //Gill,
     Cup,
     Pint,
     Quart,
     Gallon,
-    Milliliter,
-    Liter,
-    Deciliter,
+    //Milliliter,
+    //Liter,
+    //Deciliter,
     Pound,
     Ounce,
-    Milligram,
-    Gram,
-    Kilogram,
-    Millimeter,
-    Centimeter,
-    Meter,
-    Inch
+    //Milligram,
+    //Gram,
+    //Kilogram,
+    //Millimeter,
+    //Centimeter,
+    //Meter,
+    //Inch
 };
 
 #endif // UNITS_H

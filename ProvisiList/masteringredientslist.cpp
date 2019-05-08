@@ -27,11 +27,18 @@ void MasterIngredientsList::Add_Ingredient(Ingredient ingredient)
         if(ingredientPtr != m_ingredients.end())//Existing ingredient detected, so must properly merge into master list
         {
             auto newQuantity = ingredient.Get_Quantity();
-            //auto newUnit = ingredient.Get_Unit_Of_Measurement();
+            auto newUnit = ingredient.Get_Unit_Of_Measurement();
             auto existingQuantity = ingredientPtr->second->Get_Quantity();
-            //auto existingUnit = ingredientPtr->second->Get_Unit_Of_Measurement();
+            auto existingUnit = ingredientPtr->second->Get_Unit_Of_Measurement();
 
-            ingredientPtr->second->Set_Quantity((newQuantity + existingQuantity));
+            if(newUnit == existingUnit)
+            {
+                ingredientPtr->second->Set_Quantity((newQuantity + existingQuantity));
+            }
+            else//Units of measurement don't match, so they need to be normalized
+            {
+
+            }
         }
         else//New ingredient detected, so simply add to master list
         {
