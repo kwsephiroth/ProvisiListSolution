@@ -10,8 +10,10 @@ TEMPLATE = app
 SOURCES += main.cpp \
     provisilist-ut.cpp \
     ../ProvisiList/ingredientslist.cpp \
+    ../ProvisiList/masteringredientslist.cpp
 
 HEADERS += ../ProvisiList/ingredientslist.h \
+    ../ProvisiList/masteringredientslist.h
 
 #INCLUDEPATH += ../ProvisiList \
 

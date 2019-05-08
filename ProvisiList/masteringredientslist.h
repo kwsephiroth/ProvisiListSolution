@@ -11,12 +11,10 @@ class MasterIngredientsList
 private:
     using IngredientElement = std::pair<std::string, std::shared_ptr<Ingredient>>;
     std::unordered_map<std::string, std::shared_ptr<Ingredient>> m_ingredients;
-    void Merge_Ingredients_List(IngredientsList&&);//Merges an IngredientsList into the master ingredients list
-    void Merge_Ingredient(Ingredient);//Merges an Ingredient into the master ingredients list
 
 public:
     MasterIngredientsList();
-    void Add_Ingredients_List(IngredientsList&&);//Add a new ingredient list to merge into master list
+    void Add_Ingredients_List(IngredientsList&& ingredients_list);//Add a new ingredient list to merge into master list
     void Add_Ingredient(Ingredient ingredient);//Add a new ingredient to the list of ingredients
     void Remove_Ingredient(const std::string& ingredient_name);
     void Remove_All_Ingredients();

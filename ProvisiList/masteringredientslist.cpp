@@ -1,24 +1,19 @@
 #include "masteringredientslist.h"
 namespace ProvisiList
 {
-void MasterIngredientsList::Merge_Ingredients_List(IngredientsList &&)
-{
-
-}
-
-void MasterIngredientsList::Merge_Ingredient(Ingredient)
-{
-
-}
-
 MasterIngredientsList::MasterIngredientsList()
 {
 
 }
 
-void MasterIngredientsList::Add_Ingredients_List(IngredientsList &&)
+void MasterIngredientsList::Add_Ingredients_List(IngredientsList && ingredients_list)
 {
+    auto list = ingredients_list.Get_List();
 
+    for(auto itr = list.begin(); itr != list.end(); ++itr)
+    {
+        Add_Ingredient(*itr->second);
+    }
 }
 
 void MasterIngredientsList::Add_Ingredient(Ingredient ingredient)
@@ -31,7 +26,12 @@ void MasterIngredientsList::Add_Ingredient(Ingredient ingredient)
 
         if(ingredientPtr != m_ingredients.end())//Existing ingredient detected, so must properly merge into master list
         {
-           Merge_Ingredient(ingredient);
+            auto newQuantity = ingredient.Get_Quantity();
+            //auto newUnit = ingredient.Get_Unit_Of_Measurement();
+            auto existingQuantity = ingredientPtr->second->Get_Quantity();
+            //auto existingUnit = ingredientPtr->second->Get_Unit_Of_Measurement();
+
+            ingredientPtr->second->Set_Quantity((newQuantity + existingQuantity));
         }
         else//New ingredient detected, so simply add to master list
         {
