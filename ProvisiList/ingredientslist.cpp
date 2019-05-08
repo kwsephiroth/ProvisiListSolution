@@ -43,4 +43,10 @@ std::shared_ptr<Ingredient> IngredientsList::Get_Ingredient(const std::string &i
         return nullptr;
     }
 }
+
+const std::unordered_map<std::string, std::shared_ptr<Ingredient>>& IngredientsList::Get_List() const
+{
+    return m_ingredients;
+}
+
 }

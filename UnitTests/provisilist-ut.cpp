@@ -23,7 +23,7 @@ SUITE(ProvisiList)
         CHECK(quantity == 2.5);
         CHECK(unit == UnitOfMeasurement::Teaspoon);
 
-        il.Remove_All_Ingredients();
+        il.Remove_Ingredient("Salt");
         CHECK(il.Get_Number_Of_Ingredients() == 0);
     }
 }
