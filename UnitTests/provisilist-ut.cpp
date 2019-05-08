@@ -6,18 +6,25 @@ using namespace ProvisiList;
 
 SUITE(ProvisiList)
 {
-    TEST(AddIngredients)
+    TEST(CreateIngredientsList)
     {
         Ingredient i("Salt", 2.5, UnitOfMeasurement::Teaspoon);
         IngredientsList il;
         il.Add_Ingredient(i);
-        auto saltPtr = il.Get_Ingredient("Salt");
-        std::cout << saltPtr->Get_Quantity() << std::endl;
-    }
 
-    TEST(RemoveIngredients)
-    {
-        std::cout << "RemoveIngredients test invoked!" << std::endl;
+        auto ingredientPtr = il.Get_Ingredient("Salt");
+        CHECK(ingredientPtr != nullptr);
+
+        auto name = ingredientPtr->Get_Name();
+        auto quantity = ingredientPtr->Get_Quantity();
+        auto unit = ingredientPtr->Get_Unit_Of_Measurement();
+
+        CHECK(name == "Salt");
+        CHECK(quantity == 2.5);
+        CHECK(unit == UnitOfMeasurement::Teaspoon);
+
+        il.Remove_All_Ingredients();
+        CHECK(il.Get_Number_Of_Ingredients() == 0);
     }
 }
 
